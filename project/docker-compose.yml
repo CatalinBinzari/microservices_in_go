@@ -86,5 +86,27 @@ services:
       - FROM_NAME="catalin binzari"
       - FROM_ADDRESS="catalinbinzari@mail.com"
 
+
+  rabbitmq:
+    image: 'rabbitmq:3.9-alpine'
+    ports:
+      - "5672:5672"
+    deploy:
+      mode: replicated
+      replicas: 1
+    volumes:
+      - rabbitdata:/var/lib/rabbitmq
+
+
+  listener-service:
+    build:
+      context: ./../listener-service
+      dockerfile: ./../listener-service/listener-service.dockerfile
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: 1
+
 volumes:
   mongodata:
+  rabbitdata:

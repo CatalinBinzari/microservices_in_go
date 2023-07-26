@@ -16,10 +16,10 @@
 			"path": "logger-service"
 		},
 		{
-			"path": "mail-service"
+			"path": "mailer-service"
 		},
 		{
-			"path": "mailer-service"
+			"path": "listener-service"
 		}
 	]
 }
